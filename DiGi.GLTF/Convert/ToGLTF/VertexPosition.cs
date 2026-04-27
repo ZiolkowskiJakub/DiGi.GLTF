@@ -1,5 +1,5 @@
-﻿using SharpGLTF.Geometry.VertexTypes;
-using DiGi.Geometry.Spatial.Classes;
+﻿using DiGi.Geometry.Spatial.Classes;
+using SharpGLTF.Geometry.VertexTypes;
 
 namespace DiGi.GLTF
 {
@@ -7,7 +7,7 @@ namespace DiGi.GLTF
     {
         public static VertexPosition? ToGLTF(this Point3D? point3D)
         {
-            if(point3D is null)
+            if (point3D is null)
             {
                 return null;
             }
