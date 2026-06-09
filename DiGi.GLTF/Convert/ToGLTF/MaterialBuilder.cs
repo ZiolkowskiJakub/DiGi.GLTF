@@ -6,6 +6,11 @@ namespace DiGi.GLTF
 {
     public static partial class Convert
     {
+        /// <summary>
+        /// Converts an <see cref="IAppearance"/> instance to a SharpGLTF <see cref="MaterialBuilder"/>.
+        /// </summary>
+        /// <param name="appearance">The visual appearance properties for a geometry object. This parameter can be null.</param>
+        /// <returns>A <see cref="MaterialBuilder"/> representing the material definition if the provided appearance is not null; otherwise, null.</returns>
         public static MaterialBuilder? ToGLTF(this IAppearance appearance)
         {
             if (appearance is null)

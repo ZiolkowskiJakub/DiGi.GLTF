@@ -13,6 +13,11 @@ namespace DiGi.GLTF
 {
     public static partial class Convert
     {
+        /// <summary>
+        /// Converts a visual object into a GLTF mesh builder, extracting its geometry and appearance properties to create a 3D representation.
+        /// </summary>
+        /// <param name="visualObject">The visual object to be converted. This parameter can be null.</param>
+        /// <returns>A <see cref="MeshBuilder{VertexPosition, VertexColor1}"/> containing the generated GLTF mesh data and materials, or null if the <paramref name="visualObject"/> is null or lacks a valid visual representation.</returns>
         public static MeshBuilder<VertexPosition, VertexColor1>? ToGLTF(this IVisualObject? visualObject)
         {
             if (visualObject is null)
