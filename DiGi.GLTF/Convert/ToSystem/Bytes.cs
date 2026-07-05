@@ -18,5 +18,15 @@ namespace DiGi.GLTF
 
             return sceneBuilder.ToGltf2()?.WriteGLB().ToArray();
         }
+
+        /// <summary>
+        /// Converts the specified <see cref="Classes.GLTFScene"/> into a byte array representing a binary glTF (.glb) file.
+        /// </summary>
+        /// <param name="gLTFScene">The <see cref="Classes.GLTFScene"/> instance to convert. This value can be null.</param>
+        /// <returns>A byte array containing the GLB data if the conversion is successful and the input is not null; otherwise, null.</returns>
+        public static byte[]? ToSystem_Bytes(this Classes.GLTFScene? gLTFScene)
+        {
+            return ToSystem_Bytes(ToGLTF(gLTFScene));
+        }
     }
 }
