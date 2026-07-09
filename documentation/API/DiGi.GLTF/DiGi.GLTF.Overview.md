@@ -1,4 +1,4 @@
-#### [DiGi\.GLTF](index.md 'index')
+#### [DiGi\.GLTF](DiGi.GLTF.Overview.md 'DiGi\.GLTF\.Overview')
 
 ## DiGi\.GLTF Assembly
 
