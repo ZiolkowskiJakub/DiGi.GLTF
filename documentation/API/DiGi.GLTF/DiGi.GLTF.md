@@ -422,46 +422,52 @@ The distance tolerance used during triangulation\.
 [GLTFScene](DiGi.GLTF.Classes.md#DiGi.GLTF.Classes.GLTFScene 'DiGi\.GLTF\.Classes\.GLTFScene')  
 A [GLTFScene](DiGi.GLTF.Classes.md#DiGi.GLTF.Classes.GLTFScene 'DiGi\.GLTF\.Classes\.GLTFScene') with geometry translated to the local origin, or null if [serializableObjects](DiGi.GLTF.md#DiGi.GLTF.Create.GLTFScene(thisSystem.Collections.Generic.IEnumerable_DiGi.Core.Interfaces.ISerializableObject_,string,DiGi.Core.Classes.Color,double).serializableObjects 'DiGi\.GLTF\.Create\.GLTFScene\(this System\.Collections\.Generic\.IEnumerable\<DiGi\.Core\.Interfaces\.ISerializableObject\>, string, DiGi\.Core\.Classes\.Color, double\)\.serializableObjects') is null\.
 
-<a name='DiGi.GLTF.Create.GLTFScene(thisSystem.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFNode_,string,System.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFLight_,DiGi.GLTF.Classes.GLTFCamera)'></a>
+<a name='DiGi.GLTF.Create.GLTFScene(thisSystem.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFNode_,string,System.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFLight_,DiGi.GLTF.Classes.GLTFCamera,DiGi.Geometry.Spatial.Classes.Point3D)'></a>
 
-## Create\.GLTFScene\(this IEnumerable\<GLTFNode\>, string, IEnumerable\<GLTFLight\>, GLTFCamera\) Method
+## Create\.GLTFScene\(this IEnumerable\<GLTFNode\>, string, IEnumerable\<GLTFLight\>, GLTFCamera, Point3D\) Method
 
 Creates a [GLTFScene](DiGi.GLTF.Classes.md#DiGi.GLTF.Classes.GLTFScene 'DiGi\.GLTF\.Classes\.GLTFScene') from the specified [GLTFNode\(this IGeometry3D, string, string, Color, double, string, double\)](DiGi.GLTF.md#DiGi.GLTF.Create.GLTFNode(thisDiGi.Geometry.Spatial.Interfaces.IGeometry3D,string,string,DiGi.Core.Classes.Color,double,string,double) 'DiGi\.GLTF\.Create\.GLTFNode\(this DiGi\.Geometry\.Spatial\.Interfaces\.IGeometry3D, string, string, DiGi\.Core\.Classes\.Color, double, string, double\)') instances by translating all geometry to a local origin \(0, 0, 0\)\.
 
 The reference point removed from the geometry is calculated from the combined bounding box (its centroid in X and Y, its minimum in Z) and stored in [ReferencePoint](DiGi.GLTF.Classes.md#DiGi.GLTF.Classes.GLTFScene.ReferencePoint 'DiGi\.GLTF\.Classes\.GLTFScene\.ReferencePoint') so the original world coordinates can be restored. This avoids floating-point precision issues in WebGL rendering of large GIS coordinates.
 
 ```csharp
-public static DiGi.GLTF.Classes.GLTFScene? GLTFScene(this System.Collections.Generic.IEnumerable<DiGi.GLTF.Classes.GLTFNode>? gLTFNodes, string? name=null, System.Collections.Generic.IEnumerable<DiGi.GLTF.Classes.GLTFLight>? gLTFLights=null, DiGi.GLTF.Classes.GLTFCamera? gLTFCamera=null);
+public static DiGi.GLTF.Classes.GLTFScene? GLTFScene(this System.Collections.Generic.IEnumerable<DiGi.GLTF.Classes.GLTFNode>? gLTFNodes, string? name=null, System.Collections.Generic.IEnumerable<DiGi.GLTF.Classes.GLTFLight>? gLTFLights=null, DiGi.GLTF.Classes.GLTFCamera? gLTFCamera=null, DiGi.Geometry.Spatial.Classes.Point3D? referencePointOverride=null);
 ```
 #### Parameters
 
-<a name='DiGi.GLTF.Create.GLTFScene(thisSystem.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFNode_,string,System.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFLight_,DiGi.GLTF.Classes.GLTFCamera).gLTFNodes'></a>
+<a name='DiGi.GLTF.Create.GLTFScene(thisSystem.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFNode_,string,System.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFLight_,DiGi.GLTF.Classes.GLTFCamera,DiGi.Geometry.Spatial.Classes.Point3D).gLTFNodes'></a>
 
 `gLTFNodes` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[GLTFNode](DiGi.GLTF.Classes.md#DiGi.GLTF.Classes.GLTFNode 'DiGi\.GLTF\.Classes\.GLTFNode')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
 
 The [GLTFNode\(this IGeometry3D, string, string, Color, double, string, double\)](DiGi.GLTF.md#DiGi.GLTF.Create.GLTFNode(thisDiGi.Geometry.Spatial.Interfaces.IGeometry3D,string,string,DiGi.Core.Classes.Color,double,string,double) 'DiGi\.GLTF\.Create\.GLTFNode\(this DiGi\.Geometry\.Spatial\.Interfaces\.IGeometry3D, string, string, DiGi\.Core\.Classes\.Color, double, string, double\)') instances holding geometry in world coordinates\. This value can be null\.
 
-<a name='DiGi.GLTF.Create.GLTFScene(thisSystem.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFNode_,string,System.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFLight_,DiGi.GLTF.Classes.GLTFCamera).name'></a>
+<a name='DiGi.GLTF.Create.GLTFScene(thisSystem.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFNode_,string,System.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFLight_,DiGi.GLTF.Classes.GLTFCamera,DiGi.Geometry.Spatial.Classes.Point3D).name'></a>
 
 `name` [System\.String](https://learn.microsoft.com/en-us/dotnet/api/system.string 'System\.String')
 
 The display name of the scene\.
 
-<a name='DiGi.GLTF.Create.GLTFScene(thisSystem.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFNode_,string,System.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFLight_,DiGi.GLTF.Classes.GLTFCamera).gLTFLights'></a>
+<a name='DiGi.GLTF.Create.GLTFScene(thisSystem.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFNode_,string,System.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFLight_,DiGi.GLTF.Classes.GLTFCamera,DiGi.Geometry.Spatial.Classes.Point3D).gLTFLights'></a>
 
 `gLTFLights` [System\.Collections\.Generic\.IEnumerable&lt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')[GLTFLight](DiGi.GLTF.Classes.md#DiGi.GLTF.Classes.GLTFLight 'DiGi\.GLTF\.Classes\.GLTFLight')[&gt;](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.ienumerable-1 'System\.Collections\.Generic\.IEnumerable\`1')
 
 The [GLTFLight](DiGi.GLTF.Classes.md#DiGi.GLTF.Classes.GLTFLight 'DiGi\.GLTF\.Classes\.GLTFLight') configuration of the scene\. If this value is null, default lighting \(ambient light and directional sun light\) is created\.
 
-<a name='DiGi.GLTF.Create.GLTFScene(thisSystem.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFNode_,string,System.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFLight_,DiGi.GLTF.Classes.GLTFCamera).gLTFCamera'></a>
+<a name='DiGi.GLTF.Create.GLTFScene(thisSystem.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFNode_,string,System.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFLight_,DiGi.GLTF.Classes.GLTFCamera,DiGi.Geometry.Spatial.Classes.Point3D).gLTFCamera'></a>
 
 `gLTFCamera` [GLTFCamera](DiGi.GLTF.Classes.md#DiGi.GLTF.Classes.GLTFCamera 'DiGi\.GLTF\.Classes\.GLTFCamera')
 
 The [GLTFCamera](DiGi.GLTF.Classes.md#DiGi.GLTF.Classes.GLTFCamera 'DiGi\.GLTF\.Classes\.GLTFCamera') of the scene\. If this value is null, a default automatically framing camera is created\.
 
+<a name='DiGi.GLTF.Create.GLTFScene(thisSystem.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFNode_,string,System.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFLight_,DiGi.GLTF.Classes.GLTFCamera,DiGi.Geometry.Spatial.Classes.Point3D).referencePointOverride'></a>
+
+`referencePointOverride` [DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D')
+
+When non\-null, the [DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D') whose X and Y replace the bounding\-box centroid coordinates in the computed [ReferencePoint](DiGi.GLTF.Classes.md#DiGi.GLTF.Classes.GLTFScene.ReferencePoint 'DiGi\.GLTF\.Classes\.GLTFScene\.ReferencePoint') \(the Z component still comes from the bounding box minimum Z\)\.
+
 #### Returns
 [GLTFScene](DiGi.GLTF.Classes.md#DiGi.GLTF.Classes.GLTFScene 'DiGi\.GLTF\.Classes\.GLTFScene')  
-A [GLTFScene](DiGi.GLTF.Classes.md#DiGi.GLTF.Classes.GLTFScene 'DiGi\.GLTF\.Classes\.GLTFScene') with geometry translated to the local origin, or null if [gLTFNodes](DiGi.GLTF.md#DiGi.GLTF.Create.GLTFScene(thisSystem.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFNode_,string,System.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFLight_,DiGi.GLTF.Classes.GLTFCamera).gLTFNodes 'DiGi\.GLTF\.Create\.GLTFScene\(this System\.Collections\.Generic\.IEnumerable\<DiGi\.GLTF\.Classes\.GLTFNode\>, string, System\.Collections\.Generic\.IEnumerable\<DiGi\.GLTF\.Classes\.GLTFLight\>, DiGi\.GLTF\.Classes\.GLTFCamera\)\.gLTFNodes') is null\.
+A [GLTFScene](DiGi.GLTF.Classes.md#DiGi.GLTF.Classes.GLTFScene 'DiGi\.GLTF\.Classes\.GLTFScene') with geometry translated to the local origin, or null if [gLTFNodes](DiGi.GLTF.md#DiGi.GLTF.Create.GLTFScene(thisSystem.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFNode_,string,System.Collections.Generic.IEnumerable_DiGi.GLTF.Classes.GLTFLight_,DiGi.GLTF.Classes.GLTFCamera,DiGi.Geometry.Spatial.Classes.Point3D).gLTFNodes 'DiGi\.GLTF\.Create\.GLTFScene\(this System\.Collections\.Generic\.IEnumerable\<DiGi\.GLTF\.Classes\.GLTFNode\>, string, System\.Collections\.Generic\.IEnumerable\<DiGi\.GLTF\.Classes\.GLTFLight\>, DiGi\.GLTF\.Classes\.GLTFCamera, DiGi\.Geometry\.Spatial\.Classes\.Point3D\)\.gLTFNodes') is null\.
 
 <a name='DiGi.GLTF.Create.InstanceBuilder(thisSharpGLTF.Scenes.SceneBuilder,DiGi.Geometry.Visual.Core.Interfaces.IVisualObject)'></a>
 
