@@ -12,7 +12,7 @@ namespace DiGi.GLTF
         /// <param name="geometry3D">The <see cref="IGeometry3D"/> to be triangulated. This value can be null.</param>
         /// <param name="tolerance">The distance tolerance used during triangulation.</param>
         /// <returns>A <see cref="Mesh3D"/> representing the triangulated geometry, or null if the geometry is null or not supported.</returns>
-        public static Mesh3D? Mesh3D(this IGeometry3D? geometry3D, double tolerance = DiGi.Core.Constants.Tolerance.Distance)
+        public static Mesh3D? Mesh3D(this IGeometry3D? geometry3D, double tolerance = Core.Constants.Tolerance.Distance)
         {
             if (geometry3D is null)
             {

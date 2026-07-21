@@ -16,7 +16,7 @@ namespace DiGi.GLTF
         /// <param name="serializableObject">The object to be converted. This value can be null.</param>
         /// <param name="tolerance">The distance tolerance used during triangulation.</param>
         /// <returns>A list of <see cref="GLTFNode"/> instances, or null if the object is null or no converter handles it.</returns>
-        public static List<GLTFNode>? ToGLTF_GLTFNodes(this ISerializableObject? serializableObject, double tolerance = DiGi.Core.Constants.Tolerance.Distance)
+        public static List<GLTFNode>? ToGLTF_GLTFNodes(this ISerializableObject? serializableObject, double tolerance = Core.Constants.Tolerance.Distance)
         {
             if (serializableObject is null)
             {

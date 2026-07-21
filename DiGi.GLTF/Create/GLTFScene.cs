@@ -105,7 +105,7 @@ namespace DiGi.GLTF
         /// <param name="color">The default <see cref="Color"/> applied to converted geometry. This value can be null.</param>
         /// <param name="tolerance">The distance tolerance used during triangulation.</param>
         /// <returns>A <see cref="Classes.GLTFScene"/> with geometry translated to the local origin, or null if <paramref name="serializableObjects"/> is null.</returns>
-        public static GLTFScene? GLTFScene(this IEnumerable<ISerializableObject>? serializableObjects, string? name = null, Color? color = null, double tolerance = DiGi.Core.Constants.Tolerance.Distance)
+        public static GLTFScene? GLTFScene(this IEnumerable<ISerializableObject>? serializableObjects, string? name = null, Color? color = null, double tolerance = Core.Constants.Tolerance.Distance)
         {
             if (serializableObjects is null)
             {

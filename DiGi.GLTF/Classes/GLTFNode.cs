@@ -42,8 +42,8 @@ namespace DiGi.GLTF.Classes
         {
             this.name = name;
             this.reference = reference;
-            this.mesh3D = DiGi.Core.Query.Clone(mesh3D);
-            this.color = DiGi.Core.Query.Clone(color);
+            this.mesh3D = Core.Query.Clone(mesh3D);
+            this.color = Core.Query.Clone(color);
             this.opacity = opacity;
             this.properties = properties;
         }
@@ -80,8 +80,8 @@ namespace DiGi.GLTF.Classes
             {
                 name = gLTFNode.name;
                 reference = gLTFNode.reference;
-                mesh3D = DiGi.Core.Query.Clone(gLTFNode.mesh3D);
-                color = DiGi.Core.Query.Clone(gLTFNode.color);
+                mesh3D = Core.Query.Clone(gLTFNode.mesh3D);
+                color = Core.Query.Clone(gLTFNode.color);
                 opacity = gLTFNode.opacity;
                 properties = gLTFNode.properties;
             }
@@ -104,7 +104,7 @@ namespace DiGi.GLTF.Classes
         {
             get
             {
-                return DiGi.Core.Query.Clone(color);
+                return Core.Query.Clone(color);
             }
         }
 
@@ -116,7 +116,7 @@ namespace DiGi.GLTF.Classes
         {
             get
             {
-                return DiGi.Core.Query.Clone(mesh3D);
+                return Core.Query.Clone(mesh3D);
             }
         }
 

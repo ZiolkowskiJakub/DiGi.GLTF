@@ -18,7 +18,7 @@ namespace DiGi.GLTF
         /// <param name="properties">The JSON string with the properties of the source object. This value can be null.</param>
         /// <param name="tolerance">The distance tolerance used during triangulation.</param>
         /// <returns>A <see cref="GLTFNode"/> holding the triangulated geometry, or null if the geometry is null or not supported.</returns>
-        public static GLTFNode? GLTFNode(this IGeometry3D? geometry3D, string? name = null, string? reference = null, Color? color = null, double opacity = 1, string? properties = null, double tolerance = DiGi.Core.Constants.Tolerance.Distance)
+        public static GLTFNode? GLTFNode(this IGeometry3D? geometry3D, string? name = null, string? reference = null, Color? color = null, double opacity = 1, string? properties = null, double tolerance = Core.Constants.Tolerance.Distance)
         {
             Mesh3D? mesh3D = Mesh3D(geometry3D, tolerance);
             if (mesh3D is null)

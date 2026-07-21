@@ -36,7 +36,7 @@ namespace DiGi.GLTF.Classes
                 this.scenes = [];
                 foreach (GLTFScene gLTFScene in scenes)
                 {
-                    if (DiGi.Core.Query.Clone(gLTFScene) is GLTFScene gLTFScene_Temp)
+                    if (Core.Query.Clone(gLTFScene) is GLTFScene gLTFScene_Temp)
                     {
                         this.scenes.Add(gLTFScene_Temp);
                     }
@@ -61,7 +61,7 @@ namespace DiGi.GLTF.Classes
                     scenes = [];
                     foreach (GLTFScene gLTFScene in gLTFModel.scenes)
                     {
-                        if (DiGi.Core.Query.Clone(gLTFScene) is GLTFScene gLTFScene_Temp)
+                        if (Core.Query.Clone(gLTFScene) is GLTFScene gLTFScene_Temp)
                         {
                             scenes.Add(gLTFScene_Temp);
                         }
@@ -119,7 +119,7 @@ namespace DiGi.GLTF.Classes
                 List<GLTFScene> result = [];
                 foreach (GLTFScene gLTFScene in scenes)
                 {
-                    if (DiGi.Core.Query.Clone(gLTFScene) is GLTFScene gLTFScene_Temp)
+                    if (Core.Query.Clone(gLTFScene) is GLTFScene gLTFScene_Temp)
                     {
                         result.Add(gLTFScene_Temp);
                     }

@@ -43,10 +43,10 @@ namespace DiGi.GLTF.Classes
         {
             this.name = name;
             this.lightType = lightType;
-            this.color = DiGi.Core.Query.Clone(color);
+            this.color = Core.Query.Clone(color);
             this.intensity = intensity;
-            this.direction = DiGi.Core.Query.Clone(direction);
-            this.position = DiGi.Core.Query.Clone(position);
+            this.direction = Core.Query.Clone(direction);
+            this.position = Core.Query.Clone(position);
         }
 
         /// <summary>
@@ -60,10 +60,10 @@ namespace DiGi.GLTF.Classes
             {
                 name = gLTFLight.name;
                 lightType = gLTFLight.lightType;
-                color = DiGi.Core.Query.Clone(gLTFLight.color);
+                color = Core.Query.Clone(gLTFLight.color);
                 intensity = gLTFLight.intensity;
-                direction = DiGi.Core.Query.Clone(gLTFLight.direction);
-                position = DiGi.Core.Query.Clone(gLTFLight.position);
+                direction = Core.Query.Clone(gLTFLight.direction);
+                position = Core.Query.Clone(gLTFLight.position);
             }
         }
 
@@ -84,7 +84,7 @@ namespace DiGi.GLTF.Classes
         {
             get
             {
-                return DiGi.Core.Query.Clone(color);
+                return Core.Query.Clone(color);
             }
         }
 
@@ -96,7 +96,7 @@ namespace DiGi.GLTF.Classes
         {
             get
             {
-                return DiGi.Core.Query.Clone(direction);
+                return Core.Query.Clone(direction);
             }
         }
 
@@ -144,7 +144,7 @@ namespace DiGi.GLTF.Classes
         {
             get
             {
-                return DiGi.Core.Query.Clone(position);
+                return Core.Query.Clone(position);
             }
         }
     }

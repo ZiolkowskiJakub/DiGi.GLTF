@@ -39,14 +39,14 @@ namespace DiGi.GLTF.Classes
         public GLTFScene(string? name, Point3D? referencePoint, IEnumerable<GLTFNode>? nodes, IEnumerable<GLTFLight>? lights, GLTFCamera? camera)
         {
             this.name = name;
-            this.referencePoint = DiGi.Core.Query.Clone(referencePoint);
+            this.referencePoint = Core.Query.Clone(referencePoint);
 
             if (nodes != null)
             {
                 this.nodes = [];
                 foreach (GLTFNode gLTFNode in nodes)
                 {
-                    if (DiGi.Core.Query.Clone(gLTFNode) is GLTFNode gLTFNode_Temp)
+                    if (Core.Query.Clone(gLTFNode) is GLTFNode gLTFNode_Temp)
                     {
                         this.nodes.Add(gLTFNode_Temp);
                     }
@@ -58,14 +58,14 @@ namespace DiGi.GLTF.Classes
                 this.lights = [];
                 foreach (GLTFLight gLTFLight in lights)
                 {
-                    if (DiGi.Core.Query.Clone(gLTFLight) is GLTFLight gLTFLight_Temp)
+                    if (Core.Query.Clone(gLTFLight) is GLTFLight gLTFLight_Temp)
                     {
                         this.lights.Add(gLTFLight_Temp);
                     }
                 }
             }
 
-            this.camera = DiGi.Core.Query.Clone(camera);
+            this.camera = Core.Query.Clone(camera);
         }
 
         /// <summary>
@@ -97,14 +97,14 @@ namespace DiGi.GLTF.Classes
             if (gLTFScene != null)
             {
                 name = gLTFScene.name;
-                referencePoint = DiGi.Core.Query.Clone(gLTFScene.referencePoint);
+                referencePoint = Core.Query.Clone(gLTFScene.referencePoint);
 
                 if (gLTFScene.nodes != null)
                 {
                     nodes = [];
                     foreach (GLTFNode gLTFNode in gLTFScene.nodes)
                     {
-                        if (DiGi.Core.Query.Clone(gLTFNode) is GLTFNode gLTFNode_Temp)
+                        if (Core.Query.Clone(gLTFNode) is GLTFNode gLTFNode_Temp)
                         {
                             nodes.Add(gLTFNode_Temp);
                         }
@@ -116,14 +116,14 @@ namespace DiGi.GLTF.Classes
                     lights = [];
                     foreach (GLTFLight gLTFLight in gLTFScene.lights)
                     {
-                        if (DiGi.Core.Query.Clone(gLTFLight) is GLTFLight gLTFLight_Temp)
+                        if (Core.Query.Clone(gLTFLight) is GLTFLight gLTFLight_Temp)
                         {
                             lights.Add(gLTFLight_Temp);
                         }
                     }
                 }
 
-                camera = DiGi.Core.Query.Clone(gLTFScene.camera);
+                camera = Core.Query.Clone(gLTFScene.camera);
             }
         }
 
@@ -144,7 +144,7 @@ namespace DiGi.GLTF.Classes
         {
             get
             {
-                return DiGi.Core.Query.Clone(camera);
+                return Core.Query.Clone(camera);
             }
         }
 
@@ -164,7 +164,7 @@ namespace DiGi.GLTF.Classes
                 List<GLTFLight> result = [];
                 foreach (GLTFLight gLTFLight in lights)
                 {
-                    if (DiGi.Core.Query.Clone(gLTFLight) is GLTFLight gLTFLight_Temp)
+                    if (Core.Query.Clone(gLTFLight) is GLTFLight gLTFLight_Temp)
                     {
                         result.Add(gLTFLight_Temp);
                     }
@@ -202,7 +202,7 @@ namespace DiGi.GLTF.Classes
                 List<GLTFNode> result = [];
                 foreach (GLTFNode gLTFNode in nodes)
                 {
-                    if (DiGi.Core.Query.Clone(gLTFNode) is GLTFNode gLTFNode_Temp)
+                    if (Core.Query.Clone(gLTFNode) is GLTFNode gLTFNode_Temp)
                     {
                         result.Add(gLTFNode_Temp);
                     }
@@ -220,7 +220,7 @@ namespace DiGi.GLTF.Classes
         {
             get
             {
-                return DiGi.Core.Query.Clone(referencePoint);
+                return Core.Query.Clone(referencePoint);
             }
         }
 

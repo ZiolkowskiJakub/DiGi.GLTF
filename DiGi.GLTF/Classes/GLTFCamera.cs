@@ -37,8 +37,8 @@ namespace DiGi.GLTF.Classes
         public GLTFCamera(string? name, Point3D? position, Point3D? target, double fieldOfView, bool autoFrame)
         {
             this.name = name;
-            this.position = DiGi.Core.Query.Clone(position);
-            this.target = DiGi.Core.Query.Clone(target);
+            this.position = Core.Query.Clone(position);
+            this.target = Core.Query.Clone(target);
             this.fieldOfView = fieldOfView;
             this.autoFrame = autoFrame;
         }
@@ -53,8 +53,8 @@ namespace DiGi.GLTF.Classes
             if (gLTFCamera != null)
             {
                 name = gLTFCamera.name;
-                position = DiGi.Core.Query.Clone(gLTFCamera.position);
-                target = DiGi.Core.Query.Clone(gLTFCamera.target);
+                position = Core.Query.Clone(gLTFCamera.position);
+                target = Core.Query.Clone(gLTFCamera.target);
                 fieldOfView = gLTFCamera.fieldOfView;
                 autoFrame = gLTFCamera.autoFrame;
             }
@@ -113,7 +113,7 @@ namespace DiGi.GLTF.Classes
         {
             get
             {
-                return DiGi.Core.Query.Clone(position);
+                return Core.Query.Clone(position);
             }
         }
 
@@ -125,7 +125,7 @@ namespace DiGi.GLTF.Classes
         {
             get
             {
-                return DiGi.Core.Query.Clone(target);
+                return Core.Query.Clone(target);
             }
         }
     }
