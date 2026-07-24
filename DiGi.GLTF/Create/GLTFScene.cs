@@ -13,13 +13,13 @@ namespace DiGi.GLTF
     {
         /// <summary>
         /// Creates a <see cref="Classes.GLTFScene"/> from the specified <see cref="GLTFNode"/> instances by translating all geometry to a local origin (0, 0, 0).
-        /// <para>The reference point removed from the geometry is calculated from the combined bounding box (its centroid in X and Y, its minimum in Z) and stored in <see cref="Classes.GLTFScene.ReferencePoint"/> so the original world coordinates can be restored. This avoids floating-point precision issues in WebGL rendering of large GIS coordinates.</para>
+        /// <para>The reference point removed from the geometry is calculated from the combined bounding box (its centroid in X and Y, its minimum in Z) and stored in <see cref="GLTFScene.ReferencePoint"/> so the original world coordinates can be restored. This avoids floating-point precision issues in WebGL rendering of large GIS coordinates.</para>
         /// </summary>
         /// <param name="gLTFNodes">The <see cref="GLTFNode"/> instances holding geometry in world coordinates. This value can be null.</param>
         /// <param name="name">The display name of the scene.</param>
         /// <param name="gLTFLights">The <see cref="GLTFLight"/> configuration of the scene. If this value is null, default lighting (ambient light and directional sun light) is created.</param>
         /// <param name="gLTFCamera">The <see cref="GLTFCamera"/> of the scene. If this value is null, a default automatically framing camera is created.</param>
-        /// <param name="referencePointOverride">When non-null, the <see cref="Point3D"/> whose X and Y replace the bounding-box centroid coordinates in the computed <see cref="Classes.GLTFScene.ReferencePoint"/> (the Z component still comes from the bounding box minimum Z).</param>
+        /// <param name="referencePointOverride">When non-null, the <see cref="Point3D"/> whose X and Y replace the bounding-box centroid coordinates in the computed <see cref="GLTFScene.ReferencePoint"/> (the Z component still comes from the bounding box minimum Z).</param>
         /// <returns>A <see cref="Classes.GLTFScene"/> with geometry translated to the local origin, or null if <paramref name="gLTFNodes"/> is null.</returns>
         public static GLTFScene? GLTFScene(this IEnumerable<GLTFNode>? gLTFNodes, string? name = null, IEnumerable<GLTFLight>? gLTFLights = null, GLTFCamera? gLTFCamera = null, Point3D? referencePointOverride = null)
         {

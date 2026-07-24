@@ -6,9 +6,9 @@ namespace DiGi.GLTF
     public static partial class Convert
     {
         /// <summary>
-        /// Converts a <see cref="DiGi.Core.Classes.Color"/> and opacity to a SharpGLTF <see cref="MaterialBuilder"/>.
+        /// Converts a <see cref="Core.Classes.Color"/> and opacity to a SharpGLTF <see cref="MaterialBuilder"/>.
         /// </summary>
-        /// <param name="color">The <see cref="DiGi.Core.Classes.Color"/> used as the base color of the material. If this value is null, white is used.</param>
+        /// <param name="color">The <see cref="Core.Classes.Color"/> used as the base color of the material. If this value is null, white is used.</param>
         /// <param name="opacity">The opacity of the material where 1 is fully opaque and 0 is fully transparent.</param>
         /// <returns>A double-sided <see cref="MaterialBuilder"/> with the given base color and alpha mode derived from the opacity.</returns>
         public static MaterialBuilder ToGLTF(this Core.Classes.Color? color, double opacity = 1)

@@ -14,7 +14,7 @@ namespace DiGi.GLTF
         /// <param name="gLTFScene">The <see cref="Classes.GLTFScene"/> to be batched. This value can be null.</param>
         /// <param name="gLTFBatchEntries">The identity entries of all batched objects; the list index of an entry is the object id encoded in the vertex attribute.</param>
         /// <returns>A list of <see cref="GLTFBatch"/> instances (opaque first, blended second when present), or null if the scene has no valid geometry.</returns>
-        public static List<GLTFBatch>? GLTFBatches(this Classes.GLTFScene? gLTFScene, out List<GLTFBatchEntry> gLTFBatchEntries)
+        public static List<GLTFBatch>? GLTFBatches(this GLTFScene? gLTFScene, out List<GLTFBatchEntry> gLTFBatchEntries)
         {
             gLTFBatchEntries = [];
 

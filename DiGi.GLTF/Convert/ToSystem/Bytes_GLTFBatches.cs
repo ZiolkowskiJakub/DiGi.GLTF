@@ -8,13 +8,13 @@ namespace DiGi.GLTF
     public static partial class Convert
     {
         /// <summary>
-        /// Converts the specified <see cref="Classes.GLTFScene"/> into a byte array representing a binary glTF (.glb) file, optionally batching the node geometry.
+        /// Converts the specified <see cref="GLTFScene"/> into a byte array representing a binary glTF (.glb) file, optionally batching the node geometry.
         /// <para>When <paramref name="batched"/> is true, all nodes are merged into one draw unit per alpha mode (see <see cref="Create.GLTFBatches"/>): per-object styling is baked into vertex colors, per-object identity is encoded in the _OBJECTID vertex attribute and the object identity map is stored in the scene extras. This reduces thousands of WebGL draw calls to one or two.</para>
         /// </summary>
-        /// <param name="gLTFScene">The <see cref="Classes.GLTFScene"/> instance to convert. This value can be null.</param>
+        /// <param name="gLTFScene">The <see cref="GLTFScene"/> instance to convert. This value can be null.</param>
         /// <param name="batched">A value indicating whether the node geometry is merged into batched draw units.</param>
         /// <returns>A byte array containing the GLB data, or null if the scene is null or has no geometry.</returns>
-        public static byte[]? ToSystem_Bytes(this Classes.GLTFScene? gLTFScene, bool batched)
+        public static byte[]? ToSystem_Bytes(this GLTFScene? gLTFScene, bool batched)
         {
             if (gLTFScene is null)
             {
@@ -42,9 +42,9 @@ namespace DiGi.GLTF
         /// <param name="gLTFBatches">The <see cref="GLTFBatch"/> draw units to serialize. This value can be null.</param>
         /// <param name="gLTFBatchEntries">The identity entries of the batched objects; the list index of an entry is the object id encoded in the vertex attribute. This value can be null.</param>
         /// <param name="name">The optional display name of the scene.</param>
-        /// <param name="gLTFScene_Configuration">The optional <see cref="Classes.GLTFScene"/> whose configuration (reference point, lights, camera) is embedded in the scene extras as sceneConfiguration, making the GLB payload fully self-describing for streamed delivery. This value can be null.</param>
+        /// <param name="gLTFScene_Configuration">The optional <see cref="GLTFScene"/> whose configuration (reference point, lights, camera) is embedded in the scene extras as sceneConfiguration, making the GLB payload fully self-describing for streamed delivery. This value can be null.</param>
         /// <returns>A byte array containing the GLB data, or null if <paramref name="gLTFBatches"/> is null or empty.</returns>
-        public static byte[]? ToSystem_Bytes(this IEnumerable<GLTFBatch>? gLTFBatches, IEnumerable<GLTFBatchEntry>? gLTFBatchEntries, string? name = null, Classes.GLTFScene? gLTFScene_Configuration = null)
+        public static byte[]? ToSystem_Bytes(this IEnumerable<GLTFBatch>? gLTFBatches, IEnumerable<GLTFBatchEntry>? gLTFBatchEntries, string? name = null, GLTFScene? gLTFScene_Configuration = null)
         {
             if (gLTFBatches is null)
             {
@@ -123,7 +123,7 @@ namespace DiGi.GLTF
             return result;
         }
 
-        private static byte[] ToSystem_Bytes_GLTFJson(List<GLTFBatch> gLTFBatches, int[][] byteOffsets, int binaryLength, IEnumerable<GLTFBatchEntry>? gLTFBatchEntries, string? name, Classes.GLTFScene? gLTFScene_Configuration)
+        private static byte[] ToSystem_Bytes_GLTFJson(List<GLTFBatch> gLTFBatches, int[][] byteOffsets, int binaryLength, IEnumerable<GLTFBatchEntry>? gLTFBatchEntries, string? name, GLTFScene? gLTFScene_Configuration)
         {
             using MemoryStream memoryStream = new();
             using (Utf8JsonWriter utf8JsonWriter = new(memoryStream))
@@ -321,7 +321,7 @@ namespace DiGi.GLTF
             return memoryStream.ToArray();
         }
 
-        private static void WriteSceneConfiguration(Utf8JsonWriter utf8JsonWriter, Classes.GLTFScene gLTFScene)
+        private static void WriteSceneConfiguration(Utf8JsonWriter utf8JsonWriter, GLTFScene gLTFScene)
         {
             utf8JsonWriter.WriteStartObject("sceneConfiguration");
 
@@ -336,11 +336,11 @@ namespace DiGi.GLTF
                 WriteCoordinate3D(utf8JsonWriter, "ReferencePoint", referencePoint.X, referencePoint.Y, referencePoint.Z);
             }
 
-            List<Classes.GLTFLight>? gLTFLights = gLTFScene.Lights;
+            List<GLTFLight>? gLTFLights = gLTFScene.Lights;
             if (gLTFLights is not null)
             {
                 utf8JsonWriter.WriteStartArray("Lights");
-                foreach (Classes.GLTFLight gLTFLight in gLTFLights)
+                foreach (GLTFLight gLTFLight in gLTFLights)
                 {
                     utf8JsonWriter.WriteStartObject();
                     utf8JsonWriter.WriteNumber("LightType", (int)gLTFLight.LightType);
@@ -374,7 +374,7 @@ namespace DiGi.GLTF
                 utf8JsonWriter.WriteEndArray();
             }
 
-            Classes.GLTFCamera? gLTFCamera = gLTFScene.Camera;
+            GLTFCamera? gLTFCamera = gLTFScene.Camera;
             if (gLTFCamera is not null)
             {
                 utf8JsonWriter.WriteStartObject("Camera");
