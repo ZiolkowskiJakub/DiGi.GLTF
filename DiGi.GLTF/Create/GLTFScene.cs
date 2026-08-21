@@ -19,7 +19,7 @@ namespace DiGi.GLTF
         /// <param name="name">The display name of the scene.</param>
         /// <param name="gLTFLights">The <see cref="GLTFLight"/> configuration of the scene. If this value is null, default lighting (ambient light and directional sun light) is created.</param>
         /// <param name="gLTFCamera">The <see cref="GLTFCamera"/> of the scene. If this value is null, a default automatically framing camera is created.</param>
-        /// <param name="referencePointOverride">When non-null, the <see cref="Point3D"/> whose X and Y replace the bounding-box centroid coordinates in the computed <see cref="GLTFScene.ReferencePoint"/> (the Z component still comes from the bounding box minimum Z).</param>
+        /// <param name="referencePointOverride">When non-null, the <see cref="Point3D"/> whose X, Y and Z replace the computed <see cref="GLTFScene.ReferencePoint"/>.</param>
         /// <returns>A <see cref="Classes.GLTFScene"/> with geometry translated to the local origin, or null if <paramref name="gLTFNodes"/> is null.</returns>
         public static GLTFScene? GLTFScene(this IEnumerable<GLTFNode>? gLTFNodes, string? name = null, IEnumerable<GLTFLight>? gLTFLights = null, GLTFCamera? gLTFCamera = null, Point3D? referencePointOverride = null)
         {
@@ -66,8 +66,7 @@ namespace DiGi.GLTF
 
             if (referencePointOverride is not null)
             {
-                double z = referencePoint?.Z ?? 0;
-                referencePoint = new Point3D(referencePointOverride.X, referencePointOverride.Y, z);
+                referencePoint = new Point3D(referencePointOverride.X, referencePointOverride.Y, referencePointOverride.Z);
             }
 
             List<GLTFNode> gLTFNodes_Result = [];

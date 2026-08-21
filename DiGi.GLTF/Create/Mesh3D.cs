@@ -19,35 +19,42 @@ namespace DiGi.GLTF
                 return null;
             }
 
-            if (geometry3D is Mesh3D mesh3D)
+            try
             {
-                return new Mesh3D(mesh3D);
-            }
-
-            if (geometry3D is PolygonalFaceExtrusion polygonalFaceExtrusion)
-            {
-                Polyhedron? polyhedron_Extrusion = Geometry.Spatial.Create.Polyhedron(polygonalFaceExtrusion, tolerance);
-                if (polyhedron_Extrusion is null)
+                if (geometry3D is Mesh3D mesh3D)
                 {
-                    return null;
+                    return new Mesh3D(mesh3D);
                 }
 
-                return Geometry.Spatial.Create.Mesh3D(polyhedron_Extrusion, tolerance);
-            }
+                if (geometry3D is PolygonalFaceExtrusion polygonalFaceExtrusion)
+                {
+                    Polyhedron? polyhedron_Extrusion = Geometry.Spatial.Create.Polyhedron(polygonalFaceExtrusion, tolerance);
+                    if (polyhedron_Extrusion is null)
+                    {
+                        return null;
+                    }
 
-            if (geometry3D is Polyhedron polyhedron)
-            {
-                return Geometry.Spatial.Create.Mesh3D(polyhedron, tolerance);
-            }
+                    return Geometry.Spatial.Create.Mesh3D(polyhedron_Extrusion, tolerance);
+                }
 
-            if (geometry3D is IPolygonalFace3D polygonalFace3D)
-            {
-                return Geometry.Spatial.Create.Mesh3D(polygonalFace3D, tolerance);
-            }
+                if (geometry3D is Polyhedron polyhedron)
+                {
+                    return Geometry.Spatial.Create.Mesh3D(polyhedron, tolerance);
+                }
 
-            if (geometry3D is IPolygonal3D polygonal3D)
+                if (geometry3D is IPolygonalFace3D polygonalFace3D)
+                {
+                    return Geometry.Spatial.Create.Mesh3D(polygonalFace3D, tolerance);
+                }
+
+                if (geometry3D is IPolygonal3D polygonal3D)
+                {
+                    return Geometry.Spatial.Create.Mesh3D(new PolygonalFace3D(polygonal3D), tolerance);
+                }
+            }
+            catch (System.Exception)
             {
-                return Geometry.Spatial.Create.Mesh3D(new PolygonalFace3D(polygonal3D), tolerance);
+                return null;
             }
 
             return null;

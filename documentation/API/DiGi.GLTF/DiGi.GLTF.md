@@ -463,7 +463,7 @@ The [GLTFCamera](DiGi.GLTF.Classes.md#DiGi.GLTF.Classes.GLTFCamera 'DiGi\.GLTF\.
 
 `referencePointOverride` [DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D')
 
-When non\-null, the [DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D') whose X and Y replace the bounding\-box centroid coordinates in the computed [ReferencePoint](DiGi.GLTF.Classes.md#DiGi.GLTF.Classes.GLTFScene.ReferencePoint 'DiGi\.GLTF\.Classes\.GLTFScene\.ReferencePoint') \(the Z component still comes from the bounding box minimum Z\)\.
+When non\-null, the [DiGi\.Geometry\.Spatial\.Classes\.Point3D](https://learn.microsoft.com/en-us/dotnet/api/digi.geometry.spatial.classes.point3d 'DiGi\.Geometry\.Spatial\.Classes\.Point3D') whose X, Y and Z replace the computed [ReferencePoint](DiGi.GLTF.Classes.md#DiGi.GLTF.Classes.GLTFScene.ReferencePoint 'DiGi\.GLTF\.Classes\.GLTFScene\.ReferencePoint')\.
 
 #### Returns
 [GLTFScene](DiGi.GLTF.Classes.md#DiGi.GLTF.Classes.GLTFScene 'DiGi\.GLTF\.Classes\.GLTFScene')  
